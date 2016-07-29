@@ -1,0 +1,31 @@
+- error = @cliente.errors.include?(:cedula)
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :cedula, :class => 'control-label'
+  .controls
+    =f.text_field :cedula, :class => 'form-control input-large input-with-feedback'
+    %span.help-inline=error ? f.error_message_on(:cedula, :class => 'text-error') : pat(:example)
+- error = @cliente.errors.include?(:nombre)
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :nombre, :class => 'control-label'
+  .controls
+    =f.text_field :nombre, :class => 'form-control input-large input-with-feedback', :autofocus => true
+    %span.help-inline=error ? f.error_message_on(:nombre, :class => 'text-error') : pat(:example)
+- error = @cliente.errors.include?(:apellido)
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :apellido, :class => 'control-label'
+  .controls
+    =f.text_field :apellido, :class => 'form-control input-large input-with-feedback'
+    %span.help-inline=error ? f.error_message_on(:apellido, :class => 'text-error') : pat(:example)
+- error = @cliente.errors.include?(:correo)
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :correo, :class => 'control-label'
+  .controls
+    =f.text_field :correo, :class => 'form-control input-large input-with-feedback'
+    %span.help-inline=error ? f.error_message_on(:correo, :class => 'text-error') : pat(:example)
+
+.form-actions
+  =f.submit pat(:save), :class => 'btn btn-primary'
+  &nbsp;
+  =f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue'
+  &nbsp;
+  =link_to pat(:cancel), url(:clientes, :index), :class => 'btn btn-default'
